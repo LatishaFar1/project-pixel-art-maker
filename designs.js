@@ -3,20 +3,30 @@
 const pickColor = document.getElementById('colorPicker');
 const pickSize = document.getElementById('sizePicker');
 
-pickSize.addEventListener('submit', ((e) => {
+const table = document.querySelector('#pixelCanvas');
+
+makeGrid(20,25);
+
+pickSize.addEventListener('submit', (e) => {
     e.preventDefault();
 
     while(table.hasChildNodes()){
         table.removeChild(table.firstChild)
     }
-}));
+    const height = document.getElementById('inputHeight');
+    const width = document.getElementById('inputWidth');
+    makeGrid(height.value, width.value);
+});
 
 
-const table = document.querySelector('pixelCanvas');
+function makeGrid(height, width) {
 
+    for(let i=0; i < height; i++){
+        let row = table.insertRow(i);
 
-function makeGrid() {
-
-// Your code goes here!
+        for(let j=0; j < width; j++){
+            let node = row.insertCell(j)
+        }
+    }
 
 }
