@@ -26,6 +26,13 @@ function makeGrid(height, width) {
 
         for(let j=0; j < width; j++){
             let node = row.insertCell(j)
+
+            node.style.backgroundColor = '#7785AC'
+
+            node.addEventListener('click', (e) => {
+                e.preventDefault();
+                node.style.backgroundColor = pickColor.value;
+            })
         }
     }
 
